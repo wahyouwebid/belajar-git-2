@@ -1,0 +1,1 @@
+console.log("ini aku belajar tentang GIT");

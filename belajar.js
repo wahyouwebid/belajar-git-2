@@ -1,56 +1,46 @@
-const { resolve } = require("path");
 const readline = require("readline");
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-function prompt(pertanyaan, callback){
+function prompt(pertanyaan, callback) {
     rl.question(pertanyaan, (jawaban) => {
         callback(jawaban);
     });
 }
 
-function pilihan(){
-   prompt("Silahkan masukkan Pilihan Anda:\n 1.lihat data\n 2.tambah data\n",function(milih){
-    if(milih === "1"){
-        coba();
-    }else{
-        console.log("blok");
-        rl.close();
-    }
-   });
+function kalkulator() {
+    let angka1, angka2, operator;
 
-}
+    prompt("Masukkan angka pertama: ", function(nomor1) {
+        angka1 = parseFloat(nomor1);
+        prompt("+  -  *  %   ", function(ingin) {
+            operator = ingin;
+            prompt("Masukkan angka kedua: ", function(nomor2) {
+                angka2 = parseFloat(nomor2);
+                let hasil = 0;
 
-function coba(){
-    console.log("selamat datang");
-    prompt("siapa nama kamu? ", function(nama) {
-        console.log(`halo ${nama}`);
+                if (operator === "+") {
+                    hasil = angka1 + angka2;
+                } else if (operator === "-") {
+                    hasil = angka1 - angka2;
+                } else if (operator === "*") {
+                    hasil = angka1 * angka2;
+                } else if (operator === "%") {
+                    hasil = angka1 % angka2;
+                } else {
+                    console.log("Operator tidak valid!");
+                    return rl.close();
+                }
 
-        prompt("apakah ingin melanjutkan?\n 1.iya\n 2.tidak\n", function(pilih){
-            if(pilih === "1"){
-                pilihan();
-            }else{
-                console.log("blok");
+                console.log("Hasil: " + hasil);
                 rl.close();
-            }
+            });
         });
-
     });
-
-    
 }
 
 
-var array = [{id: 1, nama: "sohibul wapa", asal: "jampang kulon", lulusan: "MA"},
-    {id: 2, nama: "sohib", asal: "sukabumi", lulusan: "SMA"},
-    {id: 3, nama: "keno", asal: "jawa barat", lulusan: "SMK"}
-];
+kalkulator();
 
-array.forEach(item => {
-    console.log(`${item.id} | ${item.nama} | ${item.asal} | ${item.lulusan}`);
-    rl.close();
-});
-
-pilihan();

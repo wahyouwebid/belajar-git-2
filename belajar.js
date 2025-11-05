@@ -43,14 +43,6 @@ function coba(){
 }
 
 
-var array = [{id: 1, nama: "sohibul wapa", asal: "jampang kulon", lulusan: "MA"},
-    {id: 2, nama: "sohib", asal: "sukabumi", lulusan: "SMA"},
-    {id: 3, nama: "keno", asal: "jawa barat", lulusan: "SMK"}
-];
 
-array.forEach(item => {
-    console.log(`${item.id} | ${item.nama} | ${item.asal} | ${item.lulusan}`);
-    rl.close();
-});
 
 pilihan();

@@ -11,6 +11,7 @@ function prompt(pertanyaan, callback) {
 }
 
 function kalkulator() {
+    console.log("Selamat Mencoba Kalkulator Sederhana ^^ ");
     let angka1, angka2, operator;
 
     prompt("Masukkan angka pertama: ", function(nomor1) {
